@@ -58,8 +58,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DiceCup.cs" />
-    <Compile Include="Die.cs" />
     <Compile Include="DieNSides.cs" />
     <Compile Include="InsertCodeHere.cs" />
     <Compile Include="Program.cs" />

@@ -36,7 +36,7 @@ namespace DiceGame
             {
                 if (NumberOfChoices == 2)
                 {
-                    if (_value >= 51)
+                    if (_value >= ((100 / 2)))
                     {
                         return ChoiceOne;
                     }
@@ -47,11 +47,11 @@ namespace DiceGame
                 }
                 if (NumberOfChoices == 3)
                 {
-                    if (_value >= 66)
+                    if (_value >= ((100 / 3) * 2))
                     {
                         return ChoiceOne;
                     }
-                    else if (_value >= 33)
+                    else if (_value >= ((100 / 3)))
                     {
                         return ChoiceTwo;
                     }
@@ -62,15 +62,15 @@ namespace DiceGame
                 }
                 if (NumberOfChoices == 4)
                 {
-                    if (_value >= 75)
+                    if (_value >= ((100 / 4) * 3))
                     {
                         return ChoiceOne;
                     }
-                    else if (_value >= 50)
+                    else if (_value >= ((100 / 4) * 2))
                     {
                         return ChoiceTwo;
                     }
-                    else if (_value >= 25)
+                    else if (_value >= ((100 / 4)))
                     {
                         return ChoiceThree;
                     }
@@ -81,19 +81,19 @@ namespace DiceGame
                 }
                 if (NumberOfChoices == 5)
                 {
-                    if (_value >= 80)
+                    if (_value >= ((100 / 5) * 4))
                     {
                         return ChoiceOne;
                     }
-                    else if (_value >= 60)
+                    else if (_value >= ((100 / 5) * 3))
                     {
                         return ChoiceTwo;
                     }
-                    else if (_value >= 40)
+                    else if (_value >= ((100 / 5) * 2))
                     {
                         return ChoiceThree;
                     }
-                    else if (_value >= 20)
+                    else if (_value >= ((100 / 5)))
                     {
                         return ChoiceFour;
                     }
@@ -104,23 +104,23 @@ namespace DiceGame
                 }
                 if (NumberOfChoices == 6)
                 {
-                    if (_value >= 83)
+                    if (_value >= ((100 / 6) * 5))
                     {
                         return ChoiceOne;
                     }
-                    else if (_value >= 66)
+                    else if (_value >= ((100 / 6) * 4))
                     {
                         return ChoiceTwo;
                     }
-                    else if (_value >= 50)
+                    else if (_value >= ((100 / 6) * 3))
                     {
                         return ChoiceThree;
                     }
-                    else if (_value >= 33)
+                    else if (_value >= ((100 / 6) * 2))
                     {
                         return ChoiceFour;
                     }
-                    else if (_value >= 17)
+                    else if (_value >= 100 / 6)
                     {
                         return ChoiceFive;
                     }
@@ -131,19 +131,19 @@ namespace DiceGame
                 }
                 if (NumberOfChoices == 7)
                 {
-                    if (_value >= 85)
+                    if (_value >= ((100 / 7) * 6))
                     {
                         return ChoiceOne;
                     }
-                    else if (_value >= 71)
+                    else if (_value >= ((100 / 7) * 5))
                     {
                         return ChoiceTwo;
                     }
-                    else if (_value >= 57)
+                    else if (_value >= ((100 / 7) * 4))
                     {
                         return ChoiceThree;
                     }
-                    else if (_value >= 42)
+                    else if (_value >= ((100 / 7) * 3))
                     {
                         return ChoiceFour;
                     }
