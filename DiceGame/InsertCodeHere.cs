@@ -1,12 +1,19 @@
 ﻿using System;
+using System.Security.AccessControl;
+using System.Security.Cryptography.X509Certificates;
 
 namespace DiceGame
 {
     public class InsertCodeHere
     {
+        public int TypeChoice { get; set; } 
         public void MyCode()
         {
+            Console.WriteLine("Write 1 for Warhammer or 2 for A-10");
+            TypeChoice = Convert.ToInt32(Console.ReadLine());
 
+            if (TypeChoice == 2)
+            {
             DieNSides d100 = new DieNSides(100);
 
 
@@ -97,6 +104,57 @@ namespace DiceGame
         
 
              d100.Roll();
+            }
+            else if (TypeChoice == 1)
+            {
+                DieWH wh = new DieWH();
+                Console.WriteLine("How many attacks?");
+                wh.Attacks = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("What is the To Hit? (Hit this or higher)");
+                wh.ToHit = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("What is the Wound Characteristic? (Hit this or higher)");
+                wh.ToWound = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("What is the Save Characteristic? (Hit less than this)");
+                wh.SaveChar = Convert.ToInt32(Console.ReadLine());
+                while(wh.Attacks > 0)
+                {
+                    wh.Roll();
+                    Console.WriteLine($"Doing attack roll for {wh.Return}");
+                    if (wh.Return >= wh.ToHit)
+                    {
+                        wh.DidHit++;
+                        Console.WriteLine($"Hit added, now at {wh.DidHit}");
+                    }
+                    wh.Attacks--;
+                }
+                Console.WriteLine($"\nA total of {wh.DidHit} attacks hit for {wh.ToHit} or more\n");
+                while (wh.DidHit > 0)
+                {
+                    wh.Roll();
+                    Console.WriteLine($"Doing wound roll for {wh.Return}");
+                    if (wh.Return >= wh.ToWound)
+                    {
+                        wh.Wounds++;
+                        Console.WriteLine($"Wound added, now at {wh.Wounds}");
+                    }
+                    wh.DidHit--;
+                }
+                Console.WriteLine($"\nA total of {wh.Wounds} wounds hit for {wh.ToWound} or more\n");
+                while (wh.Wounds > 0)
+                {
+                    wh.Roll();
+                    Console.WriteLine($"Doing save roll for {wh.Return}");
+                    if (wh.Return < wh.SaveChar)
+                    {
+                        wh.AmountSixes++;
+                        Console.WriteLine($"You took a wound, now at {wh.AmountSixes}");
+                    }
+                    wh.Wounds--;
+                }
+                Console.WriteLine($"\nYou took {wh.AmountSixes} wounds from that attack\n");
+
+
+            }
 
 
             // The LAST line of code should be ABOVE this line
@@ -159,6 +217,7 @@ namespace DiceGame
             Console.WriteLine("Input tenth option");
             d100.ChoiceTen = Console.ReadLine();
         }
+
 
     }
 }

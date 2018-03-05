@@ -29,6 +29,8 @@ namespace DiceGame
         public int NumberOfChoices { get; set; }
 
         public int NumberOfRolls { get; set; }
+        public int ChoiceOneAmount { get; set; }
+        public int ChoiceTwoAmount { get; set; }
 
         public string Return
         {
@@ -38,10 +40,12 @@ namespace DiceGame
                 {
                     if (_value >= ((100 / 2)))
                     {
+                        ChoiceOneAmount++;
                         return ChoiceOne;
                     }
                     else
                     {
+                        ChoiceTwoAmount++;
                         return ChoiceTwo;
                     }
                 }
@@ -309,7 +313,7 @@ namespace DiceGame
                     _value = _generator.Next(_noOfSides) + 1;
                     if (ChoiceOne != null)
                     {
-                        Console.WriteLine($"So what is it? {Return}");
+                        Console.WriteLine($"So what is it? {Return}, {ChoiceOne} won {ChoiceOneAmount} times and {ChoiceTwo} won {ChoiceTwoAmount}");
                     }
                     NumberOfRolls--;
             }

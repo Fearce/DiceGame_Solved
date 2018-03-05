@@ -58,6 +58,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DieWH.cs" />
     <Compile Include="DieNSides.cs" />
     <Compile Include="InsertCodeHere.cs" />
     <Compile Include="Program.cs" />
